@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的旅程 - 旅遊規劃</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #F3EFE0;
+            --card-primary: #EAE3D2;
+            --text-primary: #4B3621;
+            --accent-primary: #4B3621;
+        }
+
+        /* Themes */
+        body.theme-khaki { --bg-primary: #F3EFE0; --card-primary: #EAE3D2; --text-primary: #4B3621; --accent-primary: #4B3621; }
+        body.theme-white { --bg-primary: #FFFFFF; --card-primary: #F5F5F5; --text-primary: #333333; --accent-primary: #000000; }
+        body.theme-dark { --bg-primary: #2D2D2D; --card-primary: #3D3D3D; --text-primary: #F3EFE0; --accent-primary: #F3EFE0; }
+        body.theme-grey { --bg-primary: #F0F0F0; --card-primary: #E5E5E5; --text-primary: #444444; --accent-primary: #666666; }
+        body.theme-sakura { --bg-primary: #FFF5F7; --card-primary: #FFE4E9; --text-primary: #8B4B52; --accent-primary: #FF8095; }
+        body.theme-ocean { --bg-primary: #F0F9FF; --card-primary: #E0F2FE; --text-primary: #0C4A6E; --accent-primary: #0EA5E9; }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        .muji-card {
+            background-color: var(--card-primary);
+            border: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-primary);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .modal-overlay {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 1.5rem;
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+        }
+        
+        .modal-container {
+            width: 100%;
+            max-width: 440px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 20px;
+            padding: 1rem;
+            background-color: var(--bg-primary);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+        }
+
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track { height: 4px; cursor: pointer; background: rgba(0,0,0,0.1); border-radius: 2px; }
+        input[type=range]::-webkit-slider-thumb { height: 18px; width: 18px; border-radius: 50%; background: var(--accent-primary); cursor: pointer; -webkit-appearance: none; margin-top: -7px; }
+
+        @media (max-width: 640px) {
+            .modal-container { max-width: 95vw; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "date-fns": "https://esm.sh/date-fns@^4.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="theme-khaki">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
